@@ -1,0 +1,4 @@
+game over? guess: %'guess' secret: %'secretkey' score: %'score'
+matching "green" slots between guess: %'guess' and secret: %'secret'
+update score based on matched slots: %'matched slots' and score: %'score'
+Play Worldle™-lite
