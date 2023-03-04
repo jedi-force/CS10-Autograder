@@ -1,0 +1,1614 @@
+<script app="Snap! 7, https://snap.berkeley.edu" version="2">
+  <blocks>
+    <palette>
+      <category name="Fractal" color="0,116,143,1"/>
+    </palette>
+    <block-definition s="autograder version= %'version'" type="reporter" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%n"/>
+      </inputs>
+      <script>
+        <block s="doIf">
+          <block s="reportEquals">
+            <block s="reportListAttribute">
+              <l>
+                <option>length</option>
+              </l>
+              <custom-block s="calls of %repRing in %l">
+                <block s="reifyScript">
+                  <script>
+                    <custom-block s="Fractal n= %n length= %n">
+                      <l/>
+                      <l/>
+                    </custom-block>
+                  </script>
+                  <list/>
+                </block>
+                <block s="reportTextSplit">
+                  <block s="reportBlockAttribute">
+                    <l>
+                      <option>definition</option>
+                    </l>
+                    <block s="reifyScript">
+                      <script>
+                        <custom-block s="Fractal n= %n length= %n">
+                          <l/>
+                          <l/>
+                        </custom-block>
+                      </script>
+                      <list/>
+                    </block>
+                  </block>
+                  <l>
+                    <option>blocks</option>
+                  </l>
+                </block>
+              </custom-block>
+            </block>
+            <l>0</l>
+          </block>
+          <script>
+            <block s="doReport">
+              <custom-block s="partial credit version= %n">
+                <block var="version"/>
+              </custom-block>
+            </block>
+          </script>
+        </block>
+        <block s="doFor">
+          <l>n</l>
+          <l>1</l>
+          <l>6</l>
+          <script>
+            <block s="doIf">
+              <block s="reportNot">
+                <custom-block s="%cmdRing equals %cmdRing under %repRing">
+                  <block s="reifyScript">
+                    <script>
+                      <custom-block s="Fractal n= %n length= %n">
+                        <l/>
+                        <l/>
+                      </custom-block>
+                    </script>
+                    <list/>
+                  </block>
+                  <block s="reifyScript">
+                    <script>
+                      <custom-block s="2022Fa Midterm Redo Fractal n= %n steps len= %n version= %n">
+                        <l/>
+                        <l/>
+                        <block var="version"/>
+                      </custom-block>
+                    </script>
+                    <list/>
+                  </block>
+                  <block s="reifyReporter">
+                    <autolambda>
+                      <custom-block s="get pixels of %cmdRing with n= %n length= %n waiting %n second(s)">
+                        <block s="reifyScript">
+                          <script/>
+                          <list/>
+                        </block>
+                        <block var="n"/>
+                        <l>340</l>
+                        <block s="reportMonadic">
+                          <l>
+                            <option>ceiling</option>
+                          </l>
+                          <block s="reportQuotient">
+                            <block var="n"/>
+                            <l>5</l>
+                          </block>
+                        </block>
+                      </custom-block>
+                    </autolambda>
+                    <list/>
+                  </block>
+                </custom-block>
+              </block>
+              <script>
+                <block s="doReport">
+                  <custom-block s="partial credit version= %n">
+                    <block var="version"/>
+                  </custom-block>
+                </block>
+              </script>
+            </block>
+          </script>
+        </block>
+        <block s="doReport">
+          <block s="reportJoinWords">
+            <list>
+              <l>{"score":15,"output":"</l>
+              <block s="reportCombine">
+                <block s="reportNewList">
+                  <list>
+                    <l>Point breakdown:</l>
+                    <l>Correct fractal images (5/5)</l>
+                    <l>Correct base case condition (2/2)</l>
+                    <l>Correct base case drawing (2/2)</l>
+                    <l>Correct number of recursive calls (2/2)</l>
+                    <l>Correct inputs to recursive calls (2/2)</l>
+                    <l>Correct final sprite direction (2/2)</l>
+                  </list>
+                </block>
+                <block s="reifyReporter">
+                  <autolambda>
+                    <block s="reportJoinWords">
+                      <list>
+                        <l/>
+                        <l>\n</l>
+                        <l/>
+                      </list>
+                    </block>
+                  </autolambda>
+                  <list/>
+                </block>
+              </block>
+              <l>"}</l>
+            </list>
+          </block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="2022Fa Midterm Redo Fractal n= %'n' steps len= %'len' version= %'version'" type="command" category="pen">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%n"/>
+        <input type="%n"/>
+        <input type="%n"/>
+      </inputs>
+      <script>
+        <block s="doDeclareVariables">
+          <list>
+            <l>bold</l>
+            <l>b5</l>
+            <l>b4</l>
+            <l>b3</l>
+            <l>b2</l>
+            <l>b1</l>
+            <l>b0</l>
+            <l>turn90</l>
+            <l>turn60</l>
+            <l>j</l>
+          </list>
+        </block>
+        <block s="doSetVar">
+          <l>b5</l>
+          <block s="reportEquals">
+            <block s="reportModulus">
+              <block s="reportMonadic">
+                <l>
+                  <option>floor</option>
+                </l>
+                <block s="reportQuotient">
+                  <block var="version"/>
+                  <l>32</l>
+                </block>
+              </block>
+              <l>2</l>
+            </block>
+            <l>1</l>
+          </block>
+        </block>
+        <block s="doSetVar">
+          <l>b4</l>
+          <block s="reportEquals">
+            <block s="reportModulus">
+              <block s="reportMonadic">
+                <l>
+                  <option>floor</option>
+                </l>
+                <block s="reportQuotient">
+                  <block var="version"/>
+                  <l>16</l>
+                </block>
+              </block>
+              <l>2</l>
+            </block>
+            <l>1</l>
+          </block>
+        </block>
+        <block s="doSetVar">
+          <l>b3</l>
+          <block s="reportEquals">
+            <block s="reportModulus">
+              <block s="reportMonadic">
+                <l>
+                  <option>floor</option>
+                </l>
+                <block s="reportQuotient">
+                  <block var="version"/>
+                  <l>8</l>
+                </block>
+              </block>
+              <l>2</l>
+            </block>
+            <l>1</l>
+          </block>
+        </block>
+        <block s="doSetVar">
+          <l>b2</l>
+          <block s="reportEquals">
+            <block s="reportModulus">
+              <block s="reportMonadic">
+                <l>
+                  <option>floor</option>
+                </l>
+                <block s="reportQuotient">
+                  <block var="version"/>
+                  <l>4</l>
+                </block>
+              </block>
+              <l>2</l>
+            </block>
+            <l>1</l>
+          </block>
+        </block>
+        <block s="doSetVar">
+          <l>b1</l>
+          <block s="reportEquals">
+            <block s="reportModulus">
+              <block s="reportMonadic">
+                <l>
+                  <option>floor</option>
+                </l>
+                <block s="reportQuotient">
+                  <block var="version"/>
+                  <l>2</l>
+                </block>
+              </block>
+              <l>2</l>
+            </block>
+            <l>1</l>
+          </block>
+        </block>
+        <block s="doSetVar">
+          <l>b0</l>
+          <block s="reportEquals">
+            <block s="reportModulus">
+              <block s="reportMonadic">
+                <l>
+                  <option>floor</option>
+                </l>
+                <block s="reportQuotient">
+                  <block var="version"/>
+                  <l>1</l>
+                </block>
+              </block>
+              <l>2</l>
+            </block>
+            <l>1</l>
+          </block>
+        </block>
+        <block s="doSetVar">
+          <l>bold</l>
+          <block s="reportEquals">
+            <block var="n"/>
+            <l>1</l>
+          </block>
+        </block>
+        <block s="doSetVar">
+          <l>turn90</l>
+          <custom-block s="if %b then %anyUE else %anyUE">
+            <block var="b5"/>
+            <l>-90</l>
+            <l>90</l>
+          </custom-block>
+        </block>
+        <block s="doSetVar">
+          <l>turn60</l>
+          <custom-block s="if %b then %anyUE else %anyUE">
+            <block var="b5"/>
+            <l>0</l>
+            <l>0</l>
+          </custom-block>
+        </block>
+        <block s="down"/>
+        <block s="doIfElse">
+          <block s="reportEquals">
+            <block var="n"/>
+            <l>1</l>
+          </block>
+          <script>
+            <custom-block s="move %n Bold= %b">
+              <block var="len"/>
+              <block var="bold"/>
+            </custom-block>
+          </script>
+          <script>
+            <block s="turnLeft">
+              <block var="turn60"/>
+            </block>
+            <custom-block s="Recurse if %b n= %n len= %n version= %n Bold= %b">
+              <block var="b0"/>
+              <block var="n"/>
+              <block var="len"/>
+              <block var="version"/>
+              <block var="bold"/>
+            </custom-block>
+            <block s="turn">
+              <block var="turn60"/>
+            </block>
+            <block s="turn">
+              <block var="turn90"/>
+            </block>
+            <block s="doIfElse">
+              <block s="reportNot">
+                <block var="b4"/>
+              </block>
+              <script>
+                <block s="up"/>
+                <custom-block s="Recurse if %b n= %n len= %n version= %n Bold= %b">
+                  <l>
+                    <bool>false</bool>
+                  </l>
+                  <block var="n"/>
+                  <block var="len"/>
+                  <block var="version"/>
+                  <block var="bold"/>
+                </custom-block>
+                <block s="down"/>
+              </script>
+              <script>
+                <custom-block s="Recurse if %b n= %n len= %n version= %n Bold= %b">
+                  <block var="b2"/>
+                  <block var="n"/>
+                  <block var="len"/>
+                  <block var="version"/>
+                  <block var="bold"/>
+                </custom-block>
+              </script>
+            </block>
+            <block s="turnLeft">
+              <block var="turn90"/>
+            </block>
+            <custom-block s="Recurse if %b n= %n len= %n version= %n Bold= %b">
+              <block var="b1"/>
+              <block var="n"/>
+              <block var="len"/>
+              <block var="version"/>
+              <block var="bold"/>
+            </custom-block>
+            <block s="turnLeft">
+              <block var="turn90"/>
+            </block>
+            <block s="doIfElse">
+              <block var="b4"/>
+              <script>
+                <block s="up"/>
+                <custom-block s="Recurse if %b n= %n len= %n version= %n Bold= %b">
+                  <l>
+                    <bool>false</bool>
+                  </l>
+                  <block var="n"/>
+                  <block var="len"/>
+                  <block var="version"/>
+                  <block var="bold"/>
+                </custom-block>
+                <block s="down"/>
+              </script>
+              <script>
+                <custom-block s="Recurse if %b n= %n len= %n version= %n Bold= %b">
+                  <block var="b2"/>
+                  <block var="n"/>
+                  <block var="len"/>
+                  <block var="version"/>
+                  <block var="bold"/>
+                </custom-block>
+              </script>
+            </block>
+            <block s="turn">
+              <block var="turn90"/>
+            </block>
+            <block s="turn">
+              <block var="turn60"/>
+            </block>
+            <custom-block s="Recurse if %b n= %n len= %n version= %n Bold= %b">
+              <block var="b3"/>
+              <block var="n"/>
+              <block var="len"/>
+              <block var="version"/>
+              <block var="bold"/>
+            </custom-block>
+            <block s="turnLeft">
+              <block var="turn60"/>
+            </block>
+          </script>
+        </block>
+      </script>
+      <scripts>
+        <script x="257.5" y="379.6000000000001">
+          <block s="doSetVar">
+            <l>turn60</l>
+            <custom-block s="if %b then %anyUE else %anyUE">
+              <block var="b5"/>
+              <l>-45</l>
+              <l>45</l>
+            </custom-block>
+          </block>
+        </script>
+      </scripts>
+    </block-definition>
+    <block-definition s="if %'test' then %'true' else %'false'" type="reporter" category="control">
+      <header/>
+      <code/>
+      <translations>de:wenn _ dann _ sonst _&#xD;ca:si _ llavors _ si no _&#xD;es:si _ entonces _ sino _&#xD;fr:si _ alors _ sinon _&#xD;</translations>
+      <inputs>
+        <input type="%b"/>
+        <input type="%anyUE"/>
+        <input type="%anyUE"/>
+      </inputs>
+      <script>
+        <block s="doIfElse">
+          <block var="test"/>
+          <script>
+            <block s="doReport">
+              <block s="evaluate">
+                <block var="true"/>
+                <list/>
+              </block>
+            </block>
+          </script>
+          <script>
+            <block s="doReport">
+              <block s="evaluate">
+                <block var="false"/>
+                <list/>
+              </block>
+            </block>
+          </script>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="move %'len' Bold= %'bold?'" type="command" category="motion">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%n">100</input>
+        <input type="%b"/>
+      </inputs>
+      <script>
+        <block s="forward">
+          <block var="len"/>
+        </block>
+      </script>
+      <scripts>
+        <script x="10" y="97.66666666666669">
+          <block s="doDeclareVariables">
+            <list>
+              <l>PenDown?</l>
+            </list>
+          </block>
+          <block s="doSetVar">
+            <l>PenDown?</l>
+            <block s="getPenDown"/>
+          </block>
+          <block s="doWarp">
+            <script>
+              <block s="doIf">
+                <block var="bold?"/>
+                <script>
+                  <block s="changeSize">
+                    <l>0</l>
+                  </block>
+                </script>
+              </block>
+            </script>
+          </block>
+          <block s="forward">
+            <block var="len"/>
+          </block>
+          <block s="doIf">
+            <block var="bold?"/>
+            <script>
+              <block s="changeSize">
+                <l>0</l>
+              </block>
+            </script>
+          </block>
+        </script>
+        <script x="10" y="315.83333333333337">
+          <block s="doIf">
+            <block var="PenDown?"/>
+            <script>
+              <block s="down"/>
+            </script>
+          </block>
+        </script>
+        <script x="10" y="382.5">
+          <block s="doIf">
+            <block var="PenDown?"/>
+            <script>
+              <block s="up"/>
+            </script>
+          </block>
+        </script>
+      </scripts>
+    </block-definition>
+    <block-definition s="Recurse if %'test' n= %'n' len= %'len' version= %'version' Bold= %'bold'" type="command" category="pen">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%b"/>
+        <input type="%n"/>
+        <input type="%n"/>
+        <input type="%n"/>
+        <input type="%b"/>
+      </inputs>
+      <script>
+        <block s="doDeclareVariables">
+          <list>
+            <l>smaller len</l>
+          </list>
+        </block>
+        <block s="doSetVar">
+          <l>smaller len</l>
+          <block s="reportQuotient">
+            <block var="len"/>
+            <l>3</l>
+          </block>
+        </block>
+        <block s="doIfElse">
+          <block var="test"/>
+          <script>
+            <custom-block s="2022Fa Midterm Redo Fractal n= %n steps len= %n version= %n">
+              <block s="reportDifference">
+                <block var="n"/>
+                <l>1</l>
+              </block>
+              <block var="smaller len"/>
+              <block var="version"/>
+            </custom-block>
+          </script>
+          <script>
+            <custom-block s="move %n Bold= %b">
+              <block var="smaller len"/>
+              <block var="bold"/>
+            </custom-block>
+          </script>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="calls of %'block' in %'tree'" type="reporter" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%repRing"/>
+        <input type="%l"/>
+      </inputs>
+      <script>
+        <block s="doIf">
+          <block s="reportOr">
+            <block s="reportNot">
+              <block s="reportIsA">
+                <block var="tree"/>
+                <l>
+                  <option>list</option>
+                </l>
+              </block>
+            </block>
+            <block s="reportListIsEmpty">
+              <block var="tree"/>
+            </block>
+          </block>
+          <script>
+            <block s="doReport">
+              <block s="reportNewList">
+                <list/>
+              </block>
+            </block>
+          </script>
+        </block>
+        <block s="doIf">
+          <block s="reportEquals">
+            <block s="reportListItem">
+              <l>1</l>
+              <block var="tree"/>
+            </block>
+            <block var="block"/>
+          </block>
+          <script>
+            <block s="doReport">
+              <block s="reportCONS">
+                <block var="tree"/>
+                <custom-block s="calls of %repRing in %l">
+                  <block var="block"/>
+                  <block s="reportCDR">
+                    <block var="tree"/>
+                  </block>
+                </custom-block>
+              </block>
+            </block>
+          </script>
+        </block>
+        <block s="doReport">
+          <block s="reportConcatenatedLists">
+            <block s="reportMap">
+              <block s="reifyReporter">
+                <autolambda>
+                  <custom-block s="calls of %repRing in %l">
+                    <block var="block"/>
+                    <l/>
+                  </custom-block>
+                </autolambda>
+                <list/>
+              </block>
+              <block var="tree"/>
+            </block>
+          </block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="partial credit version= %'version'" type="reporter" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%n"/>
+      </inputs>
+      <script>
+        <block s="doDeclareVariables">
+          <list>
+            <l>score</l>
+            <l>output</l>
+            <l>tree</l>
+          </list>
+        </block>
+        <block s="doSetVar">
+          <l>score</l>
+          <l>0</l>
+        </block>
+        <block s="doSetVar">
+          <l>output</l>
+          <block s="reportNewList">
+            <list>
+              <l>Point breakdown:</l>
+              <l>Correct fractal images (0/5)</l>
+            </list>
+          </block>
+        </block>
+        <block s="doSetVar">
+          <l>tree</l>
+          <block s="reportTextSplit">
+            <block s="reportBlockAttribute">
+              <l>
+                <option>definition</option>
+              </l>
+              <block s="reifyScript">
+                <script>
+                  <custom-block s="Fractal n= %n length= %n">
+                    <l/>
+                    <l/>
+                  </custom-block>
+                </script>
+                <list/>
+              </block>
+            </block>
+            <l>
+              <option>blocks</option>
+            </l>
+          </block>
+        </block>
+        <block s="doIfElse">
+          <custom-block s="base case condition correct %l">
+            <block var="tree"/>
+          </custom-block>
+          <script>
+            <block s="doChangeVar">
+              <l>score</l>
+              <l>2</l>
+            </block>
+            <block s="doAddToList">
+              <l>Correct base case condition (2/2)</l>
+              <block var="output"/>
+            </block>
+          </script>
+          <script>
+            <block s="doAddToList">
+              <l>Correct base case condition (0/2)</l>
+              <block var="output"/>
+            </block>
+          </script>
+        </block>
+        <block s="doIfElse">
+          <custom-block s="%cmdRing equals %cmdRing under %repRing">
+            <block s="reifyScript">
+              <script>
+                <custom-block s="Fractal n= %n length= %n">
+                  <l/>
+                  <l/>
+                </custom-block>
+              </script>
+              <list/>
+            </block>
+            <block s="reifyScript">
+              <script>
+                <custom-block s="2022Fa Midterm Redo Fractal n= %n steps len= %n version= %n">
+                  <l/>
+                  <l/>
+                  <block var="version"/>
+                </custom-block>
+              </script>
+              <list/>
+            </block>
+            <block s="reifyReporter">
+              <autolambda>
+                <custom-block s="get pixels of %cmdRing with n= %n length= %n waiting %n second(s)">
+                  <block s="reifyScript">
+                    <script/>
+                    <list/>
+                  </block>
+                  <l>1</l>
+                  <l>340</l>
+                  <l>1</l>
+                </custom-block>
+              </autolambda>
+              <list/>
+            </block>
+          </custom-block>
+          <script>
+            <block s="doChangeVar">
+              <l>score</l>
+              <l>2</l>
+            </block>
+            <block s="doAddToList">
+              <l>Correct base case drawing (2/2)</l>
+              <block var="output"/>
+            </block>
+          </script>
+          <script>
+            <block s="doAddToList">
+              <l>Correct base case drawing (0/2)</l>
+              <block var="output"/>
+            </block>
+          </script>
+        </block>
+        <block s="doIfElse">
+          <custom-block s="correct number of recursive calls %l version= %n">
+            <block var="tree"/>
+            <block var="version"/>
+          </custom-block>
+          <script>
+            <block s="doChangeVar">
+              <l>score</l>
+              <l>2</l>
+            </block>
+            <block s="doAddToList">
+              <l>Correct number of recursive calls (2/2)</l>
+              <block var="output"/>
+            </block>
+          </script>
+          <script>
+            <block s="doAddToList">
+              <l>Correct number of recursive calls (0/2)</l>
+              <block var="output"/>
+            </block>
+          </script>
+        </block>
+        <block s="doIfElse">
+          <custom-block s="recursion inputs correct %l">
+            <block var="tree"/>
+          </custom-block>
+          <script>
+            <block s="doChangeVar">
+              <l>score</l>
+              <l>2</l>
+            </block>
+            <block s="doAddToList">
+              <l>Correct inputs to recursive calls (2/2)</l>
+              <block var="output"/>
+            </block>
+          </script>
+          <script>
+            <block s="doAddToList">
+              <l>Correct inputs to recursive calls (0/2)</l>
+              <block var="output"/>
+            </block>
+          </script>
+        </block>
+        <block s="doIfElse">
+          <custom-block s="final sprite directions correct %n">
+            <block var="version"/>
+          </custom-block>
+          <script>
+            <block s="doChangeVar">
+              <l>score</l>
+              <l>2</l>
+            </block>
+            <block s="doAddToList">
+              <l>Correct final sprite direction (2/2)</l>
+              <block var="output"/>
+            </block>
+          </script>
+          <script>
+            <block s="doAddToList">
+              <l>Correct final sprite direction (0/2)</l>
+              <block var="output"/>
+            </block>
+          </script>
+        </block>
+        <block s="doReport">
+          <block s="reportJoinWords">
+            <list>
+              <l>{"score":</l>
+              <block var="score"/>
+              <l>,"output":"</l>
+              <block s="reportCombine">
+                <block var="output"/>
+                <block s="reifyReporter">
+                  <autolambda>
+                    <block s="reportJoinWords">
+                      <list>
+                        <l/>
+                        <l>\n</l>
+                        <l/>
+                      </list>
+                    </block>
+                  </autolambda>
+                  <list/>
+                </block>
+              </block>
+              <l>"}</l>
+            </list>
+          </block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="base case condition correct %'tree'" type="predicate" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%l"/>
+      </inputs>
+      <script>
+        <block s="doDeclareVariables">
+          <list>
+            <l>conditional calls</l>
+          </list>
+        </block>
+        <block s="doSetVar">
+          <l>conditional calls</l>
+          <block s="reportConcatenatedLists">
+            <list>
+              <custom-block s="calls of %repRing in %l">
+                <block s="reifyScript">
+                  <script>
+                    <block s="doIf">
+                      <l/>
+                      <script/>
+                    </block>
+                  </script>
+                  <list/>
+                </block>
+                <block var="tree"/>
+              </custom-block>
+              <custom-block s="calls of %repRing in %l">
+                <block s="reifyScript">
+                  <script>
+                    <block s="doIfElse">
+                      <l/>
+                      <script/>
+                      <script/>
+                    </block>
+                  </script>
+                  <list/>
+                </block>
+                <block var="tree"/>
+              </custom-block>
+            </list>
+          </block>
+        </block>
+        <block s="doIf">
+          <block s="reportNotEquals">
+            <block s="reportListAttribute">
+              <l>
+                <option>length</option>
+              </l>
+              <block var="conditional calls"/>
+            </block>
+            <l>1</l>
+          </block>
+          <script>
+            <block s="doReport">
+              <block s="reportBoolean">
+                <l>
+                  <bool>false</bool>
+                </l>
+              </block>
+            </block>
+          </script>
+        </block>
+        <block s="doReport">
+          <custom-block s="safely try reporting %anyUE then if %upvar report %anyUE">
+            <block s="evaluate">
+              <block s="reportJoinWords">
+                <custom-block s="substitute variable named %txt with value %s in %l">
+                  <l>n</l>
+                  <l>1</l>
+                  <block s="reportListItem">
+                    <l>1</l>
+                    <block s="reportListItem">
+                      <l>2</l>
+                      <block s="reportListAttribute">
+                        <l>
+                          <option>columns</option>
+                        </l>
+                        <block var="conditional calls"/>
+                      </block>
+                    </block>
+                  </block>
+                </custom-block>
+              </block>
+              <list/>
+            </block>
+            <l>error</l>
+            <block s="reportBoolean">
+              <l>
+                <bool>false</bool>
+              </l>
+            </block>
+          </custom-block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="substitute variable named %'name' with value %'value' in %'tree'" type="reporter" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%txt"/>
+        <input type="%s"/>
+        <input type="%l"/>
+      </inputs>
+      <script>
+        <block s="doIf">
+          <block s="reportNot">
+            <block s="reportIsA">
+              <block var="tree"/>
+              <l>
+                <option>list</option>
+              </l>
+            </block>
+          </block>
+          <script>
+            <block s="doReport">
+              <block var="tree"/>
+            </block>
+          </script>
+        </block>
+        <block s="doIf">
+          <block s="reportAnd">
+            <block s="reportAnd">
+              <block s="reportEquals">
+                <block s="reportListAttribute">
+                  <l>
+                    <option>length</option>
+                  </l>
+                  <block var="tree"/>
+                </block>
+                <l>2</l>
+              </block>
+              <block s="reportIsA">
+                <block s="reportListItem">
+                  <l>1</l>
+                  <block var="tree"/>
+                </block>
+                <l>
+                  <option>reporter</option>
+                </l>
+              </block>
+            </block>
+            <block s="reportEquals">
+              <block s="reportBlockAttribute">
+                <l>
+                  <option>label</option>
+                </l>
+                <block s="reportJoinWords">
+                  <block var="tree"/>
+                </block>
+              </block>
+              <block var="name"/>
+            </block>
+          </block>
+          <script>
+            <block s="doReport">
+              <block var="value"/>
+            </block>
+          </script>
+        </block>
+        <block s="doReport">
+          <block s="reportMap">
+            <block s="reifyReporter">
+              <autolambda>
+                <custom-block s="substitute variable named %txt with value %s in %l">
+                  <block var="name"/>
+                  <block var="value"/>
+                  <l/>
+                </custom-block>
+              </autolambda>
+              <list/>
+            </block>
+            <block var="tree"/>
+          </block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="safely try reporting %'this' then if %'error' report %'that'" type="reporter" category="control">
+      <comment x="0" y="0" w="316.6666666666667" collapsed="false">Catch errors in a reporter.&#xD;&#xD;Evaluates its first input.  If that expression successfully reports a value, this block reports that value.  If the expression causes a Snap! error,&#xD;then the final input slot is evaluated with the text of what would have&#xD;been the error message in variable ERROR.  SAFELY TRY then reports the value of that final expression.&#xD;&#xD;Sometimes you'll want to throw an error in the final expression.  You&#xD;can put an ERROR block inside a CALL block to do that.</comment>
+      <header/>
+      <code/>
+      <translations>ca:prova de forma segura reportant _ i si _ reportant _&#xD;</translations>
+      <inputs>
+        <input type="%anyUE"/>
+        <input type="%upvar"/>
+        <input type="%anyUE"/>
+      </inputs>
+      <script>
+        <block s="doDeclareVariables">
+          <list>
+            <l>value</l>
+          </list>
+        </block>
+        <custom-block s="safely try %cs then if %upvar %cs">
+          <script>
+            <block s="doSetVar">
+              <l>value</l>
+              <block s="evaluate">
+                <block var="this"/>
+                <list/>
+              </block>
+            </block>
+          </script>
+          <l>err</l>
+          <script>
+            <block s="doSetVar">
+              <l>error</l>
+              <block var="err"/>
+            </block>
+            <block s="doSetVar">
+              <l>value</l>
+              <block s="evaluate">
+                <block var="that"/>
+                <list/>
+              </block>
+            </block>
+          </script>
+        </custom-block>
+        <block s="doReport">
+          <block var="value"/>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="safely try %'action' then if %'error' %'handler'" type="command" category="control">
+      <comment x="0" y="0" w="276" collapsed="false">Catch errors.&#xD;&#xD;Runs the first script.  If it succeeds, nothing else happens.&#xD;But if it has an error (something that would otherwise result&#xD;in a red halo around the block), then the second script is run,&#xD;with the text of the error message that would have been shown in the variable ERROR.</comment>
+      <header/>
+      <code/>
+      <translations>pt:tenta executar _ e, em caso de erro _ , executa _&#xD;ca:prova de forma segura _ i si _ _&#xD;</translations>
+      <inputs>
+        <input type="%cs"/>
+        <input type="%upvar"/>
+        <input type="%cs"/>
+      </inputs>
+      <script>
+        <block s="doApplyExtension">
+          <l>err_try(cmd, catch, err)</l>
+          <list>
+            <block var="action"/>
+            <block var="handler"/>
+            <block var="error"/>
+          </list>
+        </block>
+        <block s="doApplyExtension">
+          <l>err_reset</l>
+          <list/>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="get pixels of %'fractal' with n= %'n' length= %'length' waiting %'seconds to wait' second(s)" type="reporter" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%cmdRing"/>
+        <input type="%n"/>
+        <input type="%n">340</input>
+        <input type="%n">1</input>
+      </inputs>
+      <script>
+        <block s="doResetTimer"/>
+        <block s="fork">
+          <block s="reifyScript">
+            <script>
+              <custom-block s="draw %cmdRing with n= %n length= %n">
+                <block var="fractal"/>
+                <block var="n"/>
+                <block var="length"/>
+              </custom-block>
+            </script>
+            <list/>
+          </block>
+          <list/>
+        </block>
+        <block s="doWaitUntil">
+          <block s="reportGreaterThan">
+            <block s="getTimer"/>
+            <block var="seconds to wait"/>
+          </block>
+        </block>
+        <block s="doStopThis">
+          <l>
+            <option>all but this script</option>
+          </l>
+        </block>
+        <block s="doReport">
+          <block s="reportGetImageAttribute">
+            <l>
+              <option>pixels</option>
+            </l>
+            <block s="reportPenTrailsAsCostume"/>
+          </block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="draw %'fractal' with n= %'n' length= %'length'" type="command" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%cmdRing"/>
+        <input type="%n"/>
+        <input type="%n"/>
+      </inputs>
+      <script>
+        <block s="doWarp">
+          <script>
+            <block s="gotoXY">
+              <block s="reportQuotient">
+                <block var="length"/>
+                <l>-2</l>
+              </block>
+              <l>0</l>
+            </block>
+            <block s="setHeading">
+              <l>90</l>
+            </block>
+            <block s="clear"/>
+            <block s="down"/>
+            <block s="doRun">
+              <block var="fractal"/>
+              <list>
+                <block var="n"/>
+                <block var="length"/>
+              </list>
+            </block>
+            <block s="up"/>
+          </script>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="%'A' equals %'B' under %'f'" type="predicate" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%cmdRing"/>
+        <input type="%cmdRing"/>
+        <input type="%repRing"/>
+      </inputs>
+      <script>
+        <block s="doReport">
+          <custom-block s="safely try reporting %anyUE then if %upvar report %anyUE">
+            <block s="reportEquals">
+              <block s="evaluate">
+                <block var="f"/>
+                <list>
+                  <block var="A"/>
+                </list>
+              </block>
+              <block s="evaluate">
+                <block var="f"/>
+                <list>
+                  <block var="B"/>
+                </list>
+              </block>
+            </block>
+            <l>error</l>
+            <block s="reportBoolean">
+              <l>
+                <bool>false</bool>
+              </l>
+            </block>
+          </custom-block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="correct number of recursive calls %'tree' version= %'version'" type="predicate" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%l"/>
+        <input type="%n"/>
+      </inputs>
+      <script>
+        <block s="doReport">
+          <block s="reportEquals">
+            <block s="reportListAttribute">
+              <l>
+                <option>length</option>
+              </l>
+              <custom-block s="calls of %repRing in %l">
+                <block s="reifyScript">
+                  <script>
+                    <custom-block s="Fractal n= %n length= %n">
+                      <l/>
+                      <l/>
+                    </custom-block>
+                  </script>
+                  <list/>
+                </block>
+                <block var="tree"/>
+              </custom-block>
+            </block>
+            <l>1</l>
+          </block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="recursion inputs correct %'tree'" type="predicate" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%l"/>
+      </inputs>
+      <script>
+        <block s="doDeclareVariables">
+          <list>
+            <l>recursive calls</l>
+          </list>
+        </block>
+        <block s="doSetVar">
+          <l>recursive calls</l>
+          <custom-block s="calls of %repRing in %l">
+            <block s="reifyScript">
+              <script>
+                <custom-block s="Fractal n= %n length= %n">
+                  <l/>
+                  <l/>
+                </custom-block>
+              </script>
+              <list/>
+            </block>
+            <block var="tree"/>
+          </custom-block>
+        </block>
+        <block s="doIf">
+          <block s="reportListIsEmpty">
+            <block var="recursive calls"/>
+          </block>
+          <script>
+            <block s="doReport">
+              <block s="reportBoolean">
+                <l>
+                  <bool>false</bool>
+                </l>
+              </block>
+            </block>
+          </script>
+        </block>
+        <block s="doReport">
+          <block s="reportAnd">
+            <custom-block s="n inputs correct %l">
+              <block s="reportListItem">
+                <l>2</l>
+                <block s="reportListAttribute">
+                  <l>
+                    <option>columns</option>
+                  </l>
+                  <block var="recursive calls"/>
+                </block>
+              </block>
+            </custom-block>
+            <custom-block s="length inputs correct %l">
+              <block s="reportListItem">
+                <l>3</l>
+                <block s="reportListAttribute">
+                  <l>
+                    <option>columns</option>
+                  </l>
+                  <block var="recursive calls"/>
+                </block>
+              </block>
+            </custom-block>
+          </block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="n inputs correct %'expressions having n'" type="predicate" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%l"/>
+      </inputs>
+      <script>
+        <custom-block s="safely try %cs then if %upvar %cs">
+          <script>
+            <block s="doForEach">
+              <l>exp</l>
+              <block var="expressions having n"/>
+              <script>
+                <block s="doFor">
+                  <l>n</l>
+                  <l>2</l>
+                  <l>5</l>
+                  <script>
+                    <block s="doIf">
+                      <block s="reportNot">
+                        <block s="reportEquals">
+                          <block s="evaluate">
+                            <block s="reportJoinWords">
+                              <custom-block s="substitute variable named %txt with value %s in %l">
+                                <l>n</l>
+                                <block var="n"/>
+                                <block var="exp"/>
+                              </custom-block>
+                            </block>
+                            <list/>
+                          </block>
+                          <block s="reportDifference">
+                            <block var="n"/>
+                            <l>1</l>
+                          </block>
+                        </block>
+                      </block>
+                      <script>
+                        <block s="doReport">
+                          <block s="reportBoolean">
+                            <l>
+                              <bool>false</bool>
+                            </l>
+                          </block>
+                        </block>
+                      </script>
+                    </block>
+                  </script>
+                </block>
+              </script>
+            </block>
+            <block s="doReport">
+              <block s="reportBoolean">
+                <l>
+                  <bool>true</bool>
+                </l>
+              </block>
+            </block>
+          </script>
+          <l>error</l>
+          <script>
+            <block s="doReport">
+              <block s="reportBoolean">
+                <l>
+                  <bool>false</bool>
+                </l>
+              </block>
+            </block>
+          </script>
+        </custom-block>
+      </script>
+    </block-definition>
+    <block-definition s="length inputs correct %'expressions having length'" type="predicate" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%l"/>
+      </inputs>
+      <script>
+        <block s="doForEach">
+          <l>exp</l>
+          <block var="expressions having length"/>
+          <script>
+            <block s="doIf">
+              <block s="reportNot">
+                <block s="reportOr">
+                  <custom-block s="safely try reporting %anyUE then if %upvar report %anyUE">
+                    <block s="reportEquals">
+                      <custom-block s="substitute variable named %txt with value %s in %l">
+                        <l>smaller length</l>
+                        <block s="reportQuotient">
+                          <l>340</l>
+                          <l>3</l>
+                        </block>
+                        <block var="exp"/>
+                      </custom-block>
+                      <block s="reportQuotient">
+                        <l>340</l>
+                        <l>3</l>
+                      </block>
+                    </block>
+                    <l>error</l>
+                    <block s="reportBoolean">
+                      <l>
+                        <bool>false</bool>
+                      </l>
+                    </block>
+                  </custom-block>
+                  <custom-block s="safely try reporting %anyUE then if %upvar report %anyUE">
+                    <block s="reportEquals">
+                      <block s="evaluate">
+                        <block s="reportJoinWords">
+                          <custom-block s="substitute variable named %txt with value %s in %l">
+                            <l>length</l>
+                            <l>340</l>
+                            <block var="exp"/>
+                          </custom-block>
+                        </block>
+                        <list/>
+                      </block>
+                      <block s="reportQuotient">
+                        <l>340</l>
+                        <l>3</l>
+                      </block>
+                    </block>
+                    <l>error</l>
+                    <block s="reportBoolean">
+                      <l>
+                        <bool>false</bool>
+                      </l>
+                    </block>
+                  </custom-block>
+                </block>
+              </block>
+              <script>
+                <block s="doReport">
+                  <block s="reportBoolean">
+                    <l>
+                      <bool>false</bool>
+                    </l>
+                  </block>
+                </block>
+              </script>
+            </block>
+          </script>
+        </block>
+        <block s="doReport">
+          <block s="reportBoolean">
+            <l>
+              <bool>true</bool>
+            </l>
+          </block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="final sprite directions correct %'version'" type="predicate" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%n"/>
+      </inputs>
+      <script>
+        <block s="doFor">
+          <l>i</l>
+          <l>1</l>
+          <l>5</l>
+          <script>
+            <block s="doIf">
+              <block s="reportNot">
+                <custom-block s="%cmdRing equals %cmdRing under %repRing">
+                  <block s="reifyScript">
+                    <script>
+                      <custom-block s="Fractal n= %n length= %n">
+                        <l/>
+                        <l/>
+                      </custom-block>
+                    </script>
+                    <list/>
+                  </block>
+                  <block s="reifyScript">
+                    <script>
+                      <custom-block s="2022Fa Midterm Redo Fractal n= %n steps len= %n version= %n">
+                        <l/>
+                        <l/>
+                        <block var="version"/>
+                      </custom-block>
+                    </script>
+                    <list/>
+                  </block>
+                  <block s="reifyReporter">
+                    <autolambda>
+                      <custom-block s="get final sprite direction of %cmdRing with n= %n length= %n waiting %n second(s)">
+                        <block s="reifyScript">
+                          <script/>
+                          <list/>
+                        </block>
+                        <block var="i"/>
+                        <l>340</l>
+                        <l>1</l>
+                      </custom-block>
+                    </autolambda>
+                    <list/>
+                  </block>
+                </custom-block>
+              </block>
+              <script>
+                <block s="doReport">
+                  <block s="reportBoolean">
+                    <l>
+                      <bool>false</bool>
+                    </l>
+                  </block>
+                </block>
+              </script>
+            </block>
+          </script>
+        </block>
+        <block s="doReport">
+          <block s="reportBoolean">
+            <l>
+              <bool>true</bool>
+            </l>
+          </block>
+        </block>
+      </script>
+    </block-definition>
+    <block-definition s="get final sprite direction of %'fractal' with n= %'n' length= %'length' waiting %'seconds to wait' second(s)" type="reporter" category="other">
+      <header/>
+      <code/>
+      <translations/>
+      <inputs>
+        <input type="%cmdRing"/>
+        <input type="%n"/>
+        <input type="%n">340</input>
+        <input type="%n">1</input>
+      </inputs>
+      <script>
+        <block s="doResetTimer"/>
+        <block s="fork">
+          <block s="reifyScript">
+            <script>
+              <custom-block s="draw %cmdRing with n= %n length= %n">
+                <block var="fractal"/>
+                <block var="n"/>
+                <block var="length"/>
+              </custom-block>
+            </script>
+            <list/>
+          </block>
+          <list/>
+        </block>
+        <block s="doWaitUntil">
+          <block s="reportGreaterThan">
+            <block s="getTimer"/>
+            <block var="seconds to wait"/>
+          </block>
+        </block>
+        <block s="doStopThis">
+          <l>
+            <option>all but this script</option>
+          </l>
+        </block>
+        <block s="doReport">
+          <block s="direction"/>
+        </block>
+      </script>
+    </block-definition>
+  </blocks>
+  <script>
+    <custom-block s="autograder version= %n">
+      <l/>
+    </custom-block>
+  </script>
+</script>

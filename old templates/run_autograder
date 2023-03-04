@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+SUBMISSION=`find /autograder/submission -regex ".*\.xml"`
+
+cp "$SUBMISSION" /autograder/source/submission.xml
+
+cd /autograder/source
+
+node autograder.js

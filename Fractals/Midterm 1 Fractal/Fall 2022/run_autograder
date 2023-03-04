@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+SUBMISSION=`find /autograder/submission -regex ".*\.xml"`
+VERSION=`echo $SUBMISSION | grep -oP "\d+(?=\.xml$)"`
+
+cp "$SUBMISSION" /autograder/source/submission.xml
+
+cd /autograder/source
+
+node autograder.js $VERSION

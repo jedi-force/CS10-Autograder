@@ -1,0 +1,7 @@
+letter %'character'
+%'word' has letter %'letter'
+uppercase word %'word'
+lowercase word %'word'
+%'word' has only these letters %'letters'
+%'word' is a pangram using all letters %'letters'
+complete solution to puzzle %'puzzle' using words %'words'
